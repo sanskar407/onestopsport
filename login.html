@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login/Register</title>
+	<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+	<div class="login">
+		<div class="form-box">
+		<div class="button-box">
+			<div id="btn"></div>
+		<button type="button" class="toggle-btn" onclick="login()">Login</button>
+		<button type="button" class="toggle-btn" onclick="Register()">Register</button>
+        </div>
+        <div class="social-icons">
+    	<img src="image/fb.png">
+    	<img src="image/tw.png">
+    	<img src="image/google.png">
+    </div>
+    <form id="login" class="input-group" name="google-sheet" method="post">
+    	<input type="text" name="Name" class="input-field" placeholder="User Id" required>
+    	<input type="text" name="Password" class="input-field" placeholder="Enter Password" required>
+    	<input type="checkbox" class="check-box"><span>Remember Password</span>
+    	<button type="submit" class="submit-btn">Login</button>
+    </form>
+    <form id="Register"class="input-group" name="google-sheet-2" method="post">
+    	<input type="text" name="Name "class="input-field" placeholder="User Id" required>
+    	<input type="email" name="Email" class="input-field" placeholder="Email Id" required>
+    	<input type="text" name="Password" class="input-field" placeholder="Enter Password" required>
+    	<input type="checkbox" class="check-box"><span>I agree to the terms & condition</span>
+    	<button type="submit" class="submit-btn">Register</button>
+    </form>
+    </div>
+</div>
+
+<script>
+	var x = document.getElementById("login");
+	var y = document.getElementById("Register");
+	var z = document.getElementById("btn");
+
+	function Register(){
+		x.style.left = "-400px";
+		y.style.left = "50px";
+		z.style.left = "110px";
+	}
+	function login(){
+		x.style.left = "50px";
+		y.style.left = "450px";
+		z.style.left = "0";
+	}
+</script>
+    <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxXHpAVDlJUQhxY2lvgLcqZyCjL78PRNC-g5EMf0pBp9P3Gx1X7SzsnPQ/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+                if (alert('Your response has been recorded. Our team will contact you soon. Thank You...')) {
+
+                }
+                else{
+                	setTimeout("location.reload(true);",700);
+                }
+
+            })
+
+    </script>
+     
+</body>
+</html>

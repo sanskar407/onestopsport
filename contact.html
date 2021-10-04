@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="contact.css">
+</head>
+<body>
+      <section class="contact">
+      	<div class="content">
+      		<h2>Contact Us</h2>
+      		<p>vmemkmkckncksnk</p>
+      	</div>
+      	<div class="container">
+      		<div class="contactInfo">
+      			<div class="box">
+      				<div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+      				<div class="text">
+      					<h3>Address</h3>
+      					<p>59-A Sudama Nagar,<br>Near Annapurna Temple<br>Indore(M.P)<br>452009</p>
+      				</div>
+      			</div>
+      			<div class="box">
+      				<div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+      				<div class="text">
+      					<h3>Phone</h3>
+      					<p>999-726-4459</p>
+      				</div>
+      			</div>
+      			<div class="box">
+      				<div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+      				<div class="text">
+      					<h3>Email</h3>
+      					<p>cakdfckc@gmail.com</p>
+      				</div>
+      			</div>
+      		</div>
+      		<div class="contactForm">
+      			<form name="google-sheet" method="post">
+      				<h2>Send Message</h2>
+      				<div class="inputBox">
+      					<input type="text" name="Name" required="required">
+      					<span>Full Name</span>
+      				</div>
+      				<div class="inputBox">
+      					<input type="text" name="Email" required="required">
+      					<span>Email</span>
+      				</div>
+      				<div class="inputBox">
+      					<input type="text" name="type your message" required="required">
+      					<span>Type your Message...</span>
+      				</div>
+      				<div class="inputBox">
+      					<input type="submit" name="" value="Send">
+      				</div>
+      			</form>
+      		</div>
+      	</div>
+      	
+      </section>
+
+ <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzQtEP5CD_ftnMtPj_QUj3xE7d7NB8fCjji-TwJHfKmJv5ey8yrg13A/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+                if (alert('Your response has been recorded. Our team will contact you soon. Thank You...')) {
+
+                }
+                else{
+                  setTimeout("location.reload(true);",700);
+                }
+
+            })
+
+    </script>
+
+</body>
+</html>
